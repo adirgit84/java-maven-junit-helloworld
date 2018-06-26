@@ -1,7 +1,5 @@
 pipeline {
-    agent {label 'slavedemo'}​
-
-         }
+    agent {label 'slavedemo'}
 tools {
 maven 'apache-maven-3.0.5'
 jdk 'LINUX_JDK'
@@ -13,13 +11,10 @@ jdk 'LINUX_JDK'
 
             }
         }
-
         stage('compile') {
             steps {
                 sh 'mvn compile'
             }
         }
-
-
     }
-
+}
