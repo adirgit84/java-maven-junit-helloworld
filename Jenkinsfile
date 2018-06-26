@@ -23,5 +23,3 @@ jdk 'LINUX_JDK'
 
     }
 
-}​
-
