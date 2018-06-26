@@ -16,5 +16,10 @@ jdk 'LINUX_JDK'
                 sh 'mvn compile'
             }
         }
+         stage('run test') {
+            steps {
+                sh 'mvn surefire:test'
+            }
+        }
     }
 }
