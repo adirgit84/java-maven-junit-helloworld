@@ -28,11 +28,15 @@ jdk 'LINUX_JDK'
               sh 'mvn package -DskipTests'
             }
         }
-          stage('Deploy') {
+    /*      stage('Deploy') {
             steps {
-             /* sh 'mvn deploy'  */
+             
+                withCredentials([usernameColonPassword(credentialsId: '44d6a6d0-b5db-423f-ab22-5233f778f69b', variable: 'adir')]) {
+    // some block
+}  
+
                 
-            }
+            } */
         }        
     }
 }
