@@ -1,3 +1,4 @@
+@Library('ws_jenkins_commons_staging')
 pipeline {
     agent {label 'slavedemo'}
 tools {
@@ -29,7 +30,8 @@ jdk 'LINUX_JDK'
         }
           stage('Deploy') {
             steps {
-              sh 'mvn deploy'
+             /* sh 'mvn deploy'  */
+                
             }
         }        
     }
