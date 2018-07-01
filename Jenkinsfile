@@ -37,6 +37,11 @@ jdk 'LINUX_JDK'
 
                 
             } 
-        }  */      
+        }  */ 
+         stage('Deploy') {
+            steps {
+                uploadFilesToArtifactory("ui-config.${version}.jar", "ws-maven/adir/example/${version}/")
+                  }
+                         }
     }
 }
