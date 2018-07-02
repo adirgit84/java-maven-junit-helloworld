@@ -43,7 +43,17 @@ jdk 'LINUX_JDK'
          stage('Deploy') {
             steps {
                 /* echo "${env.BUILD_ID}  ${env.JENKINS_URL}" */
-                uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/")
+               /* uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/") */
+                            def server = Artifactory.newServer url: 'https://artifactory.rnd-hub.com', credentialsId: 'AKCp5bAicuZJZhw1uAM9bewu6fn89sMGBUQFNxLEWwMCQHYzVGe6DNvaj5Hq6gknntVArDzDH'
+                                def uploadSpec = """{
+                                                    "files": [
+                                                          {
+                                                                "pattern": "target/java-maven-junit-helloworld-1.0.0.jar
+                                                                "target": "ws-maven/adir/example/"
+                                                          }
+                                                              ]
+                                              }"""
+                              server.upload(uploadSpec)
                   }
                          }
     }
