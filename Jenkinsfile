@@ -1,4 +1,4 @@
-/* @Library('ws_jenkins_commons_staging') */
+@Library('ws_jenkins_commons_staging') 
 pipeline {
                           agent {label 'slavedemo'}
 tools {
