@@ -38,10 +38,12 @@ jdk 'LINUX_JDK'
                 
             } 
         }  */ 
+        
+        
          stage('Deploy') {
             steps {
-                echo "${env.BUILD_ID}  ${env.JENKINS_URL}"
-                /*uploadFilesToArtifactory("ui-config.${version}.jar", "ws-maven/adir/example/${version}/")*/
+                /* echo "${env.BUILD_ID}  ${env.JENKINS_URL}" */
+                uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/")
                   }
                          }
     }
