@@ -44,7 +44,9 @@ jdk 'LINUX_JDK'
             steps {
                 /* echo "${env.BUILD_ID}  ${env.JENKINS_URL}" */
                /* uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/") */
-                            def server = Artifactory.newServer url: 'https://artifactory.rnd-hub.com', credentialsId: 'AKCp5bAicuZJZhw1uAM9bewu6fn89sMGBUQFNxLEWwMCQHYzVGe6DNvaj5Hq6gknntVArDzDH'
+                withCredentials([usernameColonPassword(credentialsId: '44d6a6d0-b5db-423f-ab22-5233f778f69b', variable: 'adir')]) {
+                    // some block            
+               
                                 def uploadSpec = """{
                                                     "files": [
                                                           {
