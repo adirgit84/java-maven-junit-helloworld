@@ -6,13 +6,13 @@ tools {
         jdk 'LINUX_JDK'
       }
     stages {
-                    stage('Cleanup and Checkout code') {
-                     steps {
-                                deleteDir()
-                                checkout([$class: 'GitSCM', branches: [[name: '*/branch1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/adirgit84/java-maven-junit-helloworld']]])
+            stage('Cleanup and Checkout code') {
+               steps {
+                      deleteDir()
+                       checkout([$class: 'GitSCM', branches: [[name: '*/branch1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/adirgit84/java-maven-junit-helloworld']]])
 
-                             }
-                                                        }
+                      }
+                                               }
             stage('Compile') {
               steps {
                 sh 'mvn compile'
@@ -28,36 +28,16 @@ tools {
               sh 'mvn package -DskipTests'
                     }
                              }
-    /*      stage('Deploy') {
-            steps {
-             
-                withCredentials([usernameColonPassword(credentialsId: '44d6a6d0-b5db-423f-ab22-5233f778f69b', variable: 'adir')]) {
-    // some block
-}  
 
-                
-            } 
-        }  */ 
-        
-        
          stage('Deploy') {
             steps {
                 /* echo "${env.BUILD_ID}  ${env.JENKINS_URL}" */
                /* uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/") */
                 withCredentials([usernameColonPassword(credentialsId: '44d6a6d0-b5db-423f-ab22-5233f778f69b', variable: 'adir')])
-                             {
-                 
-                                def uploadSpec = """{
-                                                    "files": [
-                                                          {
-                                                                "pattern": "target/java-maven-junit-helloworld-1.0.0.jar
-                                                                "target": "ws-maven/adir/example/"
-                                                          }
-                                                              ]
-                                              }"""
-                              server.upload(uploadSpec)
-                             }
+                      {
+                       uploadFilesToArtifactory("java-maven-junit-helloworld-1.0.0.jar", "ws-maven/adir/example/${version}/")
+                      }
                   }
-                         }
+                       }
     }
 }
