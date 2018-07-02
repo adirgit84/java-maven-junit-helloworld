@@ -31,7 +31,7 @@ tools {
 
          stage('Deploy') {
             steps {
-               uploadFilesToArtifactory("**", "ws-maven/adir/example/")
+               uploadFilesToArtifactory("*.jar", "ws-maven/adir/example/")
                 /* echo "${env.BUILD_ID}  ${env.JENKINS_URL}" */
                 /* uploadFilesToArtifactory("ui-config.${env.BUILD_ID}.jar", "ws-maven/adir/example/${env.BUILD_ID}/") */
              /*   withCredentials([usernameColonPassword(credentialsId: '44d6a6d0-b5db-423f-ab22-5233f778f69b', variable: 'adir')])
