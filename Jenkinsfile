@@ -32,8 +32,8 @@ tools {
          stage('Deploy') {
             steps {
 
-                /*    uploadFilesToArtifactory("*.jar", "ws-maven/adir/example/")*/
-              uploadFilesToArtifactory("*.jar", "ws-maven/adir/example/${version}/")
+                /*    uploadFilesToArtifactory("ui-config.${version}", "ws-maven/adir/example/")*/
+              uploadFilesToArtifactory("ui-config.${version}", "ws-maven/adir/example/")
               
                   }
                        }
