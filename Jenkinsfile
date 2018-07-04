@@ -16,7 +16,6 @@ tools {
                         stage('Bump version') {
               steps {
                 sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
-                sh 'cat pom.xml'
                      }
                              }
             stage('Compile') {
@@ -45,6 +44,7 @@ tools {
                        }
           stage('git clone') {
             steps {
+                   sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
                    sh 'git commit -m "upgrade pom version"'
                    sh "git push origin branch1"
                     }
