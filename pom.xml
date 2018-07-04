@@ -7,7 +7,7 @@
 
   <groupId>com.example</groupId>
   <artifactId>java-maven-junit-helloworld</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>[1.0.0,)-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -20,25 +20,25 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>${project.version}</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-module-junit4</artifactId>
-      <version>${project.version}</version>
+      <version>1.5.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-api-mockito</artifactId>
-      <version>${project.version}</version>
+      <version>1.5.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.github.stefanbirkner</groupId>
       <artifactId>system-rules</artifactId>
-      <version>${project.version}</version>
+      <version>1.4.0</version>
       <scope>test</scope>
       <!-- junit:junit-dep is deprecated, and junit:junit replaces it. -->
       <exclusions>
