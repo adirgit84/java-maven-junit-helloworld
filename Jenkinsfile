@@ -42,5 +42,13 @@ tools {
               
                   }
                        }
+          stage('git clone') {
+            steps {
+              sh 'git clone https://github.com/adirgit84/java-maven-junit-helloworld.git'
+                    }
+                             }
+      
+      
+      clone set commit push
     }
 }
