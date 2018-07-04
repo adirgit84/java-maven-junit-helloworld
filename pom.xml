@@ -8,6 +8,10 @@
   <groupId>com.example</groupId>
   <artifactId>java-maven-junit-helloworld</artifactId>
   <version>1.0.0</version>
+  <scm>
+    <developerConnection>scm:https://github.com/adirgit84/java-maven-junit-helloworld.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
   <packaging>jar</packaging>
 
   <properties>
