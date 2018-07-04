@@ -6,13 +6,18 @@ tools {
         jdk 'LINUX_JDK'
       }
     stages {
-            stage('Cleanup and Checkout code') {
-               steps {
-                      deleteDir()
-                       checkout([$class: 'GitSCM', branches: [[name: '*/branch1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/adirgit84/java-maven-junit-helloworld']]])
+            // stage('Cleanup and Checkout code') {
+            //   steps {
+            //           deleteDir()
+            //           checkout([$class: 'GitSCM', branches: [[name: '*/branch1']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/adirgit84/java-maven-junit-helloworld']]])
 
-                      }
-                                               }
+            //           }
+            //                                   }
+                        stage('Bump version') {
+              steps {
+                sh 'mvn build-helper:parse-version'
+                     }
+                             }
             stage('Compile') {
               steps {
                 sh 'mvn compile'
