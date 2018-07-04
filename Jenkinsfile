@@ -44,12 +44,10 @@ tools {
                        }
           stage('git clone') {
             steps {
-                   sh 
-                      {
-                        'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
-                        'git commit -m "upgrade pom version"'
-                        "git push origin branch1"
-                      }
+                   
+                      
+                        sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'|'git commit -m "upgrade pom version"'|"git push origin branch1"
+                      
                     }
                              }
 
