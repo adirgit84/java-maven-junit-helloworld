@@ -48,8 +48,6 @@ tools {
                    sh "git push origin branch1"
                     }
                              }
-      
-      
-      clone set commit push
+
     }
 }
