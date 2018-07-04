@@ -44,7 +44,8 @@ tools {
                        }
           stage('git clone') {
             steps {
-              sh 'git clone https://github.com/adirgit84/java-maven-junit-helloworld.git'
+                   sh 'git commit -m "upgrade pom version"'
+                   sh "git push origin branch1"
                     }
                              }
       
