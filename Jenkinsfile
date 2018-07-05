@@ -65,8 +65,8 @@ tools {
                              // sh 'git push origin branch1'
                      withCredentials([usernamePassword(credentialsId: 'adir_private_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
                      {
-                     sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/adirgit/java-maven-junit-helloworld.git --tags')
-                      }
+                     sh('git push origin branch1 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/adirgit84/java-maven-junit-helloworld.git --tags')
+                      } 
                     }
                              }
       
