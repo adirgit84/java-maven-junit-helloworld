@@ -52,7 +52,6 @@ tools {
                               sh 'git add pom.xml'
                               sh 'git commit -m "upgrade pom version"'
                               sh 'cat pom.xml'
-                              sh "git push origin branch1"
                             }
                     }
                              }
