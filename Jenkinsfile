@@ -47,7 +47,7 @@ tools {
 
                         withCredentials([usernamePassword(credentialsId: 'adir_private_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
                             {
-                              sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
+                              //sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
                               sh 'git status'          
                               sh 'git add pom.xml'
                               sh 'git commit -m "upgrade pom version"'
