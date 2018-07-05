@@ -47,8 +47,6 @@ tools {
 
                         withCredentials([usernamePassword(credentialsId: 'adir_private_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
                             {
-                          
-                              //sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
                               sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
                               sh 'git status'          
                               sh 'git add pom.xml'
@@ -58,6 +56,18 @@ tools {
                             }
                     }
                              }
+      
+      
+                stage('git push') {
+            steps {
 
+                        withCredentials([usernamePassword(credentialsId: 'adir_private_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
+                            {
+                              sh "git push origin branch1"
+                            }
+                    }
+                             }
+      
+      
     }
 }
