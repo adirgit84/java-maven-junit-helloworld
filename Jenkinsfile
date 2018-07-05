@@ -62,7 +62,7 @@ tools {
 
                         withCredentials([usernamePassword(credentialsId: 'adir_private_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
                             {
-                              sh "git push origin branch1"
+                              sh 'git push origin branch1'
                             }
                     }
                              }
