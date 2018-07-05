@@ -44,11 +44,17 @@ tools {
                        }
           stage('git clone') {
             steps {
-                        sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
-                        sh 'git status'          
-                        sh 'git add pom.xml'
-                        sh 'git commit -m "upgrade pom version"'
-                        sh "git push origin branch1"
+
+                        withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
+                            {
+                          
+                              sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
+                              sh 'mvn build-helper:parse-version versions:set -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} versions:commit'
+                              sh 'git status'          
+                              sh 'git add pom.xml'
+                              sh 'git commit -m "upgrade pom version"'
+                              sh "git push origin branch1"
+                            }
                     }
                              }
 
