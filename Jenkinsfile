@@ -45,7 +45,7 @@ tools {
           stage('git clone') {
             steps {
 
-                        withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) 
+                        withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'adir_private_github')]) 
                             {
                           
                               sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags')
